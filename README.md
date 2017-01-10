@@ -17,3 +17,4 @@ SuspendBall *suspendBall = [SuspendBall suspendBallWithFrame:CGRectMake(0, 64, 5
     self.suspendBall = suspendBall;
     [self.view addSubview:suspendBall];
 ```
+http://www.jianshu.com/p/7b7a43736286
