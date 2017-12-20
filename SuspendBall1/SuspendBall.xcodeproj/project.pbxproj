@@ -17,8 +17,6 @@
 		0A08AAFB1E1B86CD00431520 /* SuspendBallUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A08AAFA1E1B86CD00431520 /* SuspendBallUITests.m */; };
 		0A08AB0A1E1B9B2F00431520 /* MainNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A08AB091E1B9B2F00431520 /* MainNavigationController.m */; };
 		0A08AB0F1E1B9CA200431520 /* SuspendBall.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A08AB0E1E1B9CA200431520 /* SuspendBall.m */; };
-		0A08AB131E1B9E7A00431520 /* UIImage+WantImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A08AB121E1B9E7A00431520 /* UIImage+WantImage.m */; };
-		0A1701481E1CCF5D0023CAC9 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A1701471E1CCF5D0023CAC9 /* UIView+Extension.m */; };
 		0A5D95A31E239C4400290EFB /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A5D95A21E239C4400290EFB /* RootViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -60,10 +58,6 @@
 		0A08AB091E1B9B2F00431520 /* MainNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainNavigationController.m; sourceTree = "<group>"; };
 		0A08AB0D1E1B9CA200431520 /* SuspendBall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuspendBall.h; sourceTree = "<group>"; };
 		0A08AB0E1E1B9CA200431520 /* SuspendBall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuspendBall.m; sourceTree = "<group>"; };
-		0A08AB111E1B9E7A00431520 /* UIImage+WantImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+WantImage.h"; sourceTree = "<group>"; };
-		0A08AB121E1B9E7A00431520 /* UIImage+WantImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+WantImage.m"; sourceTree = "<group>"; };
-		0A1701461E1CCF5D0023CAC9 /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
-		0A1701471E1CCF5D0023CAC9 /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
 		0A5D95A11E239C4400290EFB /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		0A5D95A21E239C4400290EFB /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -116,16 +110,8 @@
 		0A08AAD41E1B86CC00431520 /* SuspendBall */ = {
 			isa = PBXGroup;
 			children = (
-				0A08AB0C1E1B9B4600431520 /* lib */,
+				0A08AB0C1E1B9B4600431520 /* lib_suspendBall */,
 				0A08AB0B1E1B9B3800431520 /* DemoVC */,
-				0A08AAD81E1B86CC00431520 /* AppDelegate.h */,
-				0A08AAD91E1B86CC00431520 /* AppDelegate.m */,
-				0A08AADB1E1B86CC00431520 /* ViewController.h */,
-				0A08AADC1E1B86CC00431520 /* ViewController.m */,
-				0A08AADE1E1B86CC00431520 /* Main.storyboard */,
-				0A08AAE11E1B86CC00431520 /* Assets.xcassets */,
-				0A08AAE31E1B86CC00431520 /* LaunchScreen.storyboard */,
-				0A08AAE61E1B86CC00431520 /* Info.plist */,
 				0A08AAD51E1B86CC00431520 /* Supporting Files */,
 			);
 			path = SuspendBall;
@@ -134,7 +120,10 @@
 		0A08AAD51E1B86CC00431520 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				0A08AAD61E1B86CC00431520 /* main.m */,
+				0A324B411FD2794C001871E3 /* System */,
+				0A08AAE11E1B86CC00431520 /* Assets.xcassets */,
+				0A08AAE31E1B86CC00431520 /* LaunchScreen.storyboard */,
+				0A08AAE61E1B86CC00431520 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -162,31 +151,32 @@
 			children = (
 				0A08AB081E1B9B2F00431520 /* MainNavigationController.h */,
 				0A08AB091E1B9B2F00431520 /* MainNavigationController.m */,
+				0A08AADB1E1B86CC00431520 /* ViewController.h */,
+				0A08AADC1E1B86CC00431520 /* ViewController.m */,
+				0A08AADE1E1B86CC00431520 /* Main.storyboard */,
 				0A5D95A11E239C4400290EFB /* RootViewController.h */,
 				0A5D95A21E239C4400290EFB /* RootViewController.m */,
 			);
 			name = DemoVC;
 			sourceTree = "<group>";
 		};
-		0A08AB0C1E1B9B4600431520 /* lib */ = {
+		0A08AB0C1E1B9B4600431520 /* lib_suspendBall */ = {
 			isa = PBXGroup;
 			children = (
-				0A08AB101E1B9E6A00431520 /* category */,
 				0A08AB0D1E1B9CA200431520 /* SuspendBall.h */,
 				0A08AB0E1E1B9CA200431520 /* SuspendBall.m */,
 			);
-			name = lib;
+			name = lib_suspendBall;
 			sourceTree = "<group>";
 		};
-		0A08AB101E1B9E6A00431520 /* category */ = {
+		0A324B411FD2794C001871E3 /* System */ = {
 			isa = PBXGroup;
 			children = (
-				0A1701461E1CCF5D0023CAC9 /* UIView+Extension.h */,
-				0A1701471E1CCF5D0023CAC9 /* UIView+Extension.m */,
-				0A08AB111E1B9E7A00431520 /* UIImage+WantImage.h */,
-				0A08AB121E1B9E7A00431520 /* UIImage+WantImage.m */,
+				0A08AAD81E1B86CC00431520 /* AppDelegate.h */,
+				0A08AAD91E1B86CC00431520 /* AppDelegate.m */,
+				0A08AAD61E1B86CC00431520 /* main.m */,
 			);
-			name = category;
+			name = System;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,7 +246,7 @@
 				TargetAttributes = {
 					0A08AAD11E1B86CC00431520 = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = L5ZK43C8RV;
+						DevelopmentTeam = L2344SS44A;
 						ProvisioningStyle = Automatic;
 					};
 					0A08AAEA1E1B86CD00431520 = {
@@ -329,8 +319,6 @@
 				0A08AADD1E1B86CC00431520 /* ViewController.m in Sources */,
 				0A5D95A31E239C4400290EFB /* RootViewController.m in Sources */,
 				0A08AADA1E1B86CC00431520 /* AppDelegate.m in Sources */,
-				0A1701481E1CCF5D0023CAC9 /* UIView+Extension.m in Sources */,
-				0A08AB131E1B9E7A00431520 /* UIImage+WantImage.m in Sources */,
 				0A08AB0A1E1B9B2F00431520 /* MainNavigationController.m in Sources */,
 				0A08AAD71E1B86CC00431520 /* main.m in Sources */,
 			);
@@ -481,11 +469,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = L5ZK43C8RV;
+				DEVELOPMENT_TEAM = L2344SS44A;
 				INFOPLIST_FILE = SuspendBall/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.pusswzy.www.SuspendBall;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -493,11 +483,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = L5ZK43C8RV;
+				DEVELOPMENT_TEAM = L2344SS44A;
 				INFOPLIST_FILE = SuspendBall/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.pusswzy.www.SuspendBall;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

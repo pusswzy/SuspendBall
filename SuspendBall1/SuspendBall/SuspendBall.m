@@ -7,18 +7,105 @@
 //
 
 #import "SuspendBall.h"
-#import "UIImage+WantImage.h"
-#import "UIView+Extension.h"
+
+/*** 分类方法  ***/
+@interface UIView (Extension)
+@property (nonatomic, assign) CGFloat lhz_width;
+@property (nonatomic, assign) CGFloat lhz_height;
+
+@property (nonatomic, assign) CGFloat lhz_x;
+@property (nonatomic, assign) CGFloat lhz_y;
+
+@property (nonatomic, assign) CGFloat lhz_centerX;
+@property (nonatomic, assign) CGFloat lhz_centerY;
+@end
+
+@implementation UIView (Extension)
+
+- (CGFloat)lhz_width
+{
+    return self.frame.size.width;
+}
+
+- (CGFloat)lhz_height
+{
+    return self.frame.size.height;
+}
+
+- (void)setLhz_width:(CGFloat)lhz_width
+{
+    CGRect frame = self.frame;
+    frame.size.width = lhz_width;
+    self.frame = frame;
+}
+
+- (void)setLhz_height:(CGFloat)lhz_height
+{
+    CGRect frame = self.frame;
+    frame.size.height = lhz_height;
+    self.frame = frame;
+}
+
+- (CGFloat)lhz_x
+{
+    return self.frame.origin.x;
+}
+
+- (void)setLhz_x:(CGFloat)lhz_x
+{
+    CGRect frame = self.frame;
+    frame.origin.x = lhz_x;
+    self.frame = frame;
+}
+
+- (CGFloat)lhz_y
+{
+    return self.frame.origin.y;
+}
+
+- (void)setLhz_y:(CGFloat)lhz_y
+{
+    CGRect frame = self.frame;
+    frame.origin.y = lhz_y;
+    self.frame = frame;
+}
+
+- (CGFloat)lhz_centerX
+{
+    return self.center.x;
+}
+
+- (void)setLhz_centerX:(CGFloat)lhz_centerX
+{
+    CGPoint center = self.center;
+    center.x = lhz_centerX;
+    self.center = center;
+}
+
+
+- (CGFloat)lhz_centerY
+{
+    return self.center.y;
+}
+
+- (void)setLhz_centerY:(CGFloat)lhz_centerY
+{
+    CGPoint center = self.center;
+    center.y = lhz_centerY;
+    self.center = center;
+}
+@end
+
+
+/*** 悬浮球的实现  ***/
 @interface SuspendBall () {
     
 }
-
-///** 按钮名字数组  */
-//@property (nonatomic, strong) NSArray *btnNameArray;
-
 @end
 @implementation SuspendBall
-static CGFloat fullButtonWidth = 50;
+static CGFloat fullButtonWidth    = 50;
+static CGFloat btnBigImageWidth   = 32;
+static CGFloat btnSmallImageWidth = 22;
 #define KScreenWidth [UIScreen mainScreen].bounds.size.width
 #define KScreenHeight [UIScreen mainScreen].bounds.size.height
 
@@ -29,7 +116,7 @@ static CGFloat fullButtonWidth = 50;
         [self initialization];
         self.layer.cornerRadius = fullButtonWidth / 2;
         self.backgroundColor = [[UIColor lightGrayColor] colorWithAlphaComponent:0.6];
-        [self setImage:[[UIImage imageNamed:@"circle"] getWantImageWithSize:CGSizeMake(32, 32)] forState:0];
+        [self setImage:[self resizeImage:[UIImage imageNamed:@"circle"] wantSize:CGSizeMake(btnBigImageWidth, btnBigImageWidth)] forState:0];
         [self addTarget:self action:@selector(suspendBallShow) forControlEvents:UIControlEventTouchUpInside];
         
         UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(moveSuspend:)];
@@ -131,7 +218,7 @@ static CGFloat fullButtonWidth = 50;
     __weak typeof(self) weakSelf = self;
     if (_showFunction == NO) {
         self.backgroundColor = [[UIColor darkGrayColor] colorWithAlphaComponent:0.6];
-        [self setImage:[[UIImage imageNamed:@"cross"] getWantImageWithSize:CGSizeMake(22, 22)] forState:0];
+        [self setImage:[self resizeImage:[UIImage imageNamed:@"cross"] wantSize:CGSizeMake(btnSmallImageWidth, btnSmallImageWidth)] forState:0];
         _showFunction = YES;
         
         [self functionMenuShow];
@@ -143,7 +230,7 @@ static CGFloat fullButtonWidth = 50;
         
     } else if (_showFunction == YES) { //full state
         self.backgroundColor = _superBallBackColor;
-        [self setImage:[[UIImage imageNamed:@"circle"] getWantImageWithSize:CGSizeMake(32, 32)] forState:0];
+        [self setImage:[self resizeImage:[UIImage imageNamed:@"circle"] wantSize:CGSizeMake(btnBigImageWidth, btnBigImageWidth)] forState:0];
         _showFunction = NO;
         
         [self.functionMenu removeFromSuperview];
@@ -238,7 +325,7 @@ static CGFloat fullButtonWidth = 50;
 
         for (int i = 0; i < self.imageNameGroup.count; i++) {
             UIButton *functionBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-            [functionBtn setImage:[[UIImage imageNamed:self.imageNameGroup[i]] getWantImageWithSize:CGSizeMake(22, 22)] forState:UIControlStateNormal];
+            [functionBtn setImage:[self resizeImage:[UIImage imageNamed:self.imageNameGroup[i]] wantSize:CGSizeMake(btnSmallImageWidth, btnSmallImageWidth)] forState:UIControlStateNormal];
             
             functionBtn.lhz_width = fullButtonWidth;
             functionBtn.lhz_height = fullButtonWidth;
@@ -254,6 +341,15 @@ static CGFloat fullButtonWidth = 50;
         }
     }
     return _functionMenu;
+}
+
+#pragma mark - private method
+- (UIImage *)resizeImage:(UIImage *)originImage wantSize:(CGSize)wantSize
+{
+    UIGraphicsBeginImageContextWithOptions(wantSize, NO, 0.0);
+    [originImage drawInRect:CGRectMake(0, 0, wantSize.width, wantSize.height)];
+    UIImage *wantImage = UIGraphicsGetImageFromCurrentImageContext();
+    return wantImage;
 }
 
 @end
