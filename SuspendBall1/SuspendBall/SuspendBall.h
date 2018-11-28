@@ -1,9 +1,7 @@
 //
 //  SuspendBall.h
-//  移动掌控
 //
 //  Created by 李昊泽 on 16/12/5.
-//  Copyright © 2016年 dianbo. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

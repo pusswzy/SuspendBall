@@ -24,13 +24,18 @@
     self.view.backgroundColor = [UIColor whiteColor];
     self.navigationItem.title = @"悬浮球demo";
     
-    SuspendBall *suspendBall = [SuspendBall suspendBallWithFrame:CGRectMake(0, 64, 50, 50) delegate:self subBallImageArray:@[@"suspend-back", @"suspend-share", @"full_screen_exit", @"up", @"down"]];
+    SuspendBall *suspendBall = [SuspendBall suspendBallWithFrame:CGRectMake(0, 100, 50, 50) delegate:self subBallImageArray:@[@"suspend-back", @"suspend-share", @"full_screen_exit", @"up", @"down"]];
     self.suspendBall = suspendBall;
     [self.view addSubview:suspendBall];
     
     [self setupWebView];
+}
 
-    
+- (void)dealloc
+{
+    self.suspendBall.delegate = nil;
+    self.suspendBall = nil;
+    NSLog(@"%s", __func__);
 }
 
 - (void)setupWebView

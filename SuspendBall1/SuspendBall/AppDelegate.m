@@ -7,7 +7,6 @@
 //
 
 #import "AppDelegate.h"
-#import "MainNavigationController.h"
 #import "SuspendBall.h"
 @interface AppDelegate ()
 
@@ -19,7 +18,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    self.window.rootViewController = [[MainNavigationController alloc] initWithRootViewController:[NSClassFromString(@"RootViewController") new]];
+    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:[NSClassFromString(@"RootViewController") new]];
     [self.window makeKeyAndVisible];
     
 //    SuspendBall *suspendBall = [SuspendBall suspendBallWithFrame:CGRectMake(0, 64, 50, 50) delegate:nil subBallImageArray:@[@"suspend-back", @"suspend-share", @"full_screen_exit", @"up", @"down"]];

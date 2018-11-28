@@ -1,9 +1,7 @@
 //
 //  SuspendBall.m
-//  移动掌控
 //
 //  Created by 李昊泽 on 16/12/5.
-//  Copyright © 2016年 dianbo. All rights reserved.
 //
 
 #import "SuspendBall.h"
@@ -98,7 +96,7 @@
 
 
 /*** 悬浮球的实现  ***/
-@interface SuspendBall () {
+@interface SuspendBall ()<UIGestureRecognizerDelegate> {
     
 }
 @end
@@ -106,8 +104,13 @@
 static CGFloat fullButtonWidth    = 50;
 static CGFloat btnBigImageWidth   = 32;
 static CGFloat btnSmallImageWidth = 22;
-#define KScreenWidth [UIScreen mainScreen].bounds.size.width
-#define KScreenHeight [UIScreen mainScreen].bounds.size.height
+
+///!!!: TO DO --- 以后会加上对横屏的支持 2018.11.28
+#define KScreenWidth MIN([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)
+#define KScreenHeight MAX([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)
+#define IS_IPHONEX ((KScreenHeight == 812.f || KScreenHeight == 896.f) ? YES : NO)
+#define KNavBarHeight (IS_IPHONEX ? 88.f:64.f)
+
 
 #pragma mark - initialization
 - (instancetype)initWithFrame:(CGRect)frame
@@ -120,11 +123,24 @@ static CGFloat btnSmallImageWidth = 22;
         [self addTarget:self action:@selector(suspendBallShow) forControlEvents:UIControlEventTouchUpInside];
         
         UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(moveSuspend:)];
+        pan.delegate = self;
+        pan.delaysTouchesBegan = NO;
         [self addGestureRecognizer:pan];
         [self suspendBallShow];
         
     }
     return self;
+}
+
+- (void)dealloc
+{
+    NSLog(@"%s", __func__);
+}
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
+{
+    NSLog(@"%@---%@", gestureRecognizer.view, otherGestureRecognizer.view);
+    return NO;
 }
 
 + (instancetype)suspendBallWithFrame:(CGRect)ballFrame delegate:(id<SuspendBallDelegte>)delegate subBallImageArray:(NSArray *)imageArray
@@ -134,12 +150,6 @@ static CGFloat btnSmallImageWidth = 22;
     suspendBall.delegate = delegate;
     suspendBall.imageNameGroup = imageArray;
     return suspendBall;
-}
-
-- (void)layoutSubviews
-{
-    [super layoutSubviews];
-    
 }
 
 - (void)didMoveToSuperview
@@ -168,16 +178,19 @@ static CGFloat btnSmallImageWidth = 22;
     _superBallBackColor = superBallBackColor;
     self.backgroundColor = superBallBackColor;
 }
+
 #pragma mark - Selector
 //移动悬浮球  在这里添加对悬浮球的边界判断以及是否需要粘性效果
 - (void)moveSuspend:(UIPanGestureRecognizer *)pan
 {
-    NSLog(@"%@",self.superview);
+    
     CGPoint point = [pan locationInView:self.superview];
     self.lhz_centerX = point.x;
     self.lhz_centerY = point.y;
     
     switch (pan.state) {
+        case UIGestureRecognizerStateFailed:
+        case UIGestureRecognizerStateCancelled:
         case UIGestureRecognizerStateEnded:
             if (point.x < fullButtonWidth / 2) {
                 [UIView animateWithDuration:0.5 animations:^{
@@ -197,9 +210,9 @@ static CGFloat btnSmallImageWidth = 22;
                 }];
             }
             
-            if (point.y < 64 + fullButtonWidth / 2) {
+            if (point.y < KNavBarHeight + fullButtonWidth / 2) {
                 [UIView animateWithDuration:0.5 animations:^{
-                    self.lhz_y = 64;
+                    self.lhz_y = KNavBarHeight;
                 }];
             }
             
@@ -351,5 +364,7 @@ static CGFloat btnSmallImageWidth = 22;
     UIImage *wantImage = UIGraphicsGetImageFromCurrentImageContext();
     return wantImage;
 }
+
+#pragma mark - other method
 
 @end
