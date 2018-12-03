@@ -13,10 +13,8 @@
 		0A08AAE01E1B86CC00431520 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A08AADE1E1B86CC00431520 /* Main.storyboard */; };
 		0A08AAE21E1B86CC00431520 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A08AAE11E1B86CC00431520 /* Assets.xcassets */; };
 		0A08AAE51E1B86CC00431520 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A08AAE31E1B86CC00431520 /* LaunchScreen.storyboard */; };
-		0A08AAF01E1B86CD00431520 /* SuspendBallTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A08AAEF1E1B86CD00431520 /* SuspendBallTests.m */; };
-		0A08AAFB1E1B86CD00431520 /* SuspendBallUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A08AAFA1E1B86CD00431520 /* SuspendBallUITests.m */; };
-		0A08AB0F1E1B9CA200431520 /* SuspendBall.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A08AB0E1E1B9CA200431520 /* SuspendBall.m */; };
 		0A5D95A31E239C4400290EFB /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A5D95A21E239C4400290EFB /* RootViewController.m */; };
+		B8CCA5E121B5561D001B58ED /* SuspendBall.m in Sources */ = {isa = PBXBuildFile; fileRef = B8CCA5DF21B5561D001B58ED /* SuspendBall.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,15 +46,11 @@
 		0A08AAE41E1B86CC00431520 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0A08AAE61E1B86CC00431520 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0A08AAEB1E1B86CD00431520 /* SuspendBallTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SuspendBallTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		0A08AAEF1E1B86CD00431520 /* SuspendBallTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SuspendBallTests.m; sourceTree = "<group>"; };
-		0A08AAF11E1B86CD00431520 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0A08AAF61E1B86CD00431520 /* SuspendBallUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SuspendBallUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		0A08AAFA1E1B86CD00431520 /* SuspendBallUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SuspendBallUITests.m; sourceTree = "<group>"; };
-		0A08AAFC1E1B86CD00431520 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0A08AB0D1E1B9CA200431520 /* SuspendBall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuspendBall.h; sourceTree = "<group>"; };
-		0A08AB0E1E1B9CA200431520 /* SuspendBall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuspendBall.m; sourceTree = "<group>"; };
 		0A5D95A11E239C4400290EFB /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		0A5D95A21E239C4400290EFB /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		B8CCA5DF21B5561D001B58ED /* SuspendBall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuspendBall.m; sourceTree = "<group>"; };
+		B8CCA5E021B5561D001B58ED /* SuspendBall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuspendBall.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,9 +81,8 @@
 		0A08AAC91E1B86CC00431520 = {
 			isa = PBXGroup;
 			children = (
+				B8CCA5DE21B5561D001B58ED /* lib */,
 				0A08AAD41E1B86CC00431520 /* SuspendBall */,
-				0A08AAEE1E1B86CD00431520 /* SuspendBallTests */,
-				0A08AAF91E1B86CD00431520 /* SuspendBallUITests */,
 				0A08AAD31E1B86CC00431520 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -107,7 +100,6 @@
 		0A08AAD41E1B86CC00431520 /* SuspendBall */ = {
 			isa = PBXGroup;
 			children = (
-				0A08AB0C1E1B9B4600431520 /* lib_suspendBall */,
 				0A08AB0B1E1B9B3800431520 /* DemoVC */,
 				0A08AAD51E1B86CC00431520 /* Supporting Files */,
 			);
@@ -125,24 +117,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		0A08AAEE1E1B86CD00431520 /* SuspendBallTests */ = {
-			isa = PBXGroup;
-			children = (
-				0A08AAEF1E1B86CD00431520 /* SuspendBallTests.m */,
-				0A08AAF11E1B86CD00431520 /* Info.plist */,
-			);
-			path = SuspendBallTests;
-			sourceTree = "<group>";
-		};
-		0A08AAF91E1B86CD00431520 /* SuspendBallUITests */ = {
-			isa = PBXGroup;
-			children = (
-				0A08AAFA1E1B86CD00431520 /* SuspendBallUITests.m */,
-				0A08AAFC1E1B86CD00431520 /* Info.plist */,
-			);
-			path = SuspendBallUITests;
-			sourceTree = "<group>";
-		};
 		0A08AB0B1E1B9B3800431520 /* DemoVC */ = {
 			isa = PBXGroup;
 			children = (
@@ -155,15 +129,6 @@
 			name = DemoVC;
 			sourceTree = "<group>";
 		};
-		0A08AB0C1E1B9B4600431520 /* lib_suspendBall */ = {
-			isa = PBXGroup;
-			children = (
-				0A08AB0D1E1B9CA200431520 /* SuspendBall.h */,
-				0A08AB0E1E1B9CA200431520 /* SuspendBall.m */,
-			);
-			name = lib_suspendBall;
-			sourceTree = "<group>";
-		};
 		0A324B411FD2794C001871E3 /* System */ = {
 			isa = PBXGroup;
 			children = (
@@ -172,6 +137,15 @@
 				0A08AAD61E1B86CC00431520 /* main.m */,
 			);
 			name = System;
+			sourceTree = "<group>";
+		};
+		B8CCA5DE21B5561D001B58ED /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				B8CCA5DF21B5561D001B58ED /* SuspendBall.m */,
+				B8CCA5E021B5561D001B58ED /* SuspendBall.h */,
+			);
+			path = lib;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -310,7 +284,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A08AB0F1E1B9CA200431520 /* SuspendBall.m in Sources */,
+				B8CCA5E121B5561D001B58ED /* SuspendBall.m in Sources */,
 				0A08AADD1E1B86CC00431520 /* ViewController.m in Sources */,
 				0A5D95A31E239C4400290EFB /* RootViewController.m in Sources */,
 				0A08AADA1E1B86CC00431520 /* AppDelegate.m in Sources */,
@@ -322,7 +296,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A08AAF01E1B86CD00431520 /* SuspendBallTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -330,7 +303,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A08AAFB1E1B86CD00431520 /* SuspendBallUITests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

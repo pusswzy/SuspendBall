@@ -24,7 +24,8 @@
     self.view.backgroundColor = [UIColor whiteColor];
     self.navigationItem.title = @"悬浮球demo";
     
-    SuspendBall *suspendBall = [SuspendBall suspendBallWithFrame:CGRectMake(0, 100, 50, 50) delegate:self subBallImageArray:@[@"suspend-back", @"suspend-share", @"full_screen_exit", @"up", @"down"]];
+    CGFloat btnWH = 50.f;
+    SuspendBall *suspendBall = [SuspendBall suspendBallWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width - btnWH, 100, btnWH, btnWH) delegate:self subBallImageArray:@[@"suspend-back", @"suspend-share", @"full_screen_exit", @"up", @"down"]];
     self.suspendBall = suspendBall;
     [self.view addSubview:suspendBall];
     
