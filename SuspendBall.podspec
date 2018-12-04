@@ -1,10 +1,4 @@
-#
-#  Be sure to run `pod spec lint SuspendBall.podspec' to ensure this is a
-#  valid spec and to remove all comments including this before submitting the spec.
-#
-#  To learn more about Podspec attributes see https://docs.cocoapods.org/specification.html
-#  To see working Podspecs in the CocoaPods repo see https://github.com/CocoaPods/Specs/
-#
+
 
 Pod::Spec.new do |spec|
 
@@ -52,9 +46,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.author             = { "pusswzy" => "499272000@qq.com" }
-  # Or just: spec.author    = "pusswzy"
-  # spec.authors            = { "pusswzy" => "499272000@qq.com" }
-  # spec.social_media_url   = "https://twitter.com/pusswzy"
+
 
   # ――― Platform Specifics ――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
@@ -81,16 +73,9 @@ Pod::Spec.new do |spec|
 spec.source       = { :git => "https://github.com/pusswzy/SuspendBall.git", :tag => 0.2 }
 
 
-  # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  #
-  #  CocoaPods is smart about how it includes source code. For source files
-  #  giving a folder will include any swift, h, m, mm, c & cpp files.
-  #  For header files it will include any header in the folder.
-  #  Not including the public_header_files will make all headers public.
-  #
 
-  spec.source_files  = "lib", "lib}"
-spec.exclude_files = "Classes/Exclude"
+spec.source_files  = "lib"
+#spec.exclude_files = "lib/Exclude"
 
   # spec.public_header_files = "Classes/**/*.h"
 
